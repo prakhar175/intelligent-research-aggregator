@@ -10,7 +10,7 @@ load_dotenv()
 def pull_snapshot_status(
     snapshot_id: str, max_attempts: int = 24, delay: int = 5
 ) -> bool:
-    api_key = os.getenv("BRIGHTDATA_API_KEY")
+    api_key = os.getenv("BRIGHTDATA_API")
     progress_url = f"https://api.brightdata.com/datasets/v3/progress/{snapshot_id}"
     headers = {"Authorization": f"Bearer {api_key}"}
 
@@ -50,16 +50,23 @@ def pull_snapshot_status(
 def download_snapshot(
     snapshot_id: str, format: str = "json"
 ) -> Optional[List[Dict[Any, Any]]]:
-    api_key = os.getenv("BRIGHTDATA_API_KEY")
+    api_key = os.getenv("BRIGHTDATA_API")
     download_url = (
         f"https://api.brightdata.com/datasets/v3/snapshot/{snapshot_id}?format={format}"
     )
+
+    # Try with Bearer first, fallback to Token
     headers = {"Authorization": f"Bearer {api_key}"}
 
     try:
         print("Downloading snapshot data...")
 
         response = requests.get(download_url, headers=headers)
+        if response.status_code == 401:
+            print("Retrying with Token authentication...")
+            headers["Authorization"] = f"Token {api_key}"
+            response = requests.get(download_url, headers=headers)
+
         response.raise_for_status()
 
         data = response.json()
