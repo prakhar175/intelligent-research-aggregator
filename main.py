@@ -5,6 +5,7 @@ from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from typing_extensions import TypedDict
 from pydantic import BaseModel, Field
+from web_op import serp_search
 load_dotenv()
 
 llm=ChatGroq(model="openai/gpt-oss-20b")
@@ -25,14 +26,16 @@ class State(TypedDict):
 def google_search(state:State):
     user_question=state.get("user_question"," ")
     print(f"Searching Google for:{user_question}")
-    google_results=[]
+    google_results=serp_search(user_question,engine="google")
+    print(google_results)
     return {"google_results":google_results}
 
 
 def bing_search(state:State):
     user_question=state.get("user_question"," ")
     print(f"Searching bing for:{user_question}")
-    bing_results=[]
+    bing_results=serp_search(user_question,engine="bing")
+    print(bing_results)
     return {"bing_results":bing_results}
 
 
