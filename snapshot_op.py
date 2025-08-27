@@ -8,7 +8,7 @@ load_dotenv()
 
 
 def pull_snapshot_status(
-    snapshot_id: str, max_attempts: int = 24, delay: int = 5
+    snapshot_id: str, max_attempts: int = 24, delay: int = 10
 ) -> bool:
     api_key = os.getenv("BRIGHTDATA_API")
     progress_url = f"https://api.brightdata.com/datasets/v3/progress/{snapshot_id}"
