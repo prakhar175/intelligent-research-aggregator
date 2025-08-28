@@ -172,8 +172,3 @@ careful management of communication and culture challenges...
 **Reddit Data Retrieval Fails**
 - Some Reddit URLs may be inaccessible or deleted
 - The system gracefully handles missing data
-
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-Project Link: [https://github.com/yourusername/ai-agent-langgraph](https://github.com/yourusername/ai-agent-langgraph)
-
