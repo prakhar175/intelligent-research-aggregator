@@ -1,4 +1,4 @@
-# Multi-Source Research Agent 🔍
+# Intelligent-Research-Aggregator 🔍
 
 A powerful AI-powered research Agent that aggregates information from multiple sources (Google, Bing, and Reddit) to provide comprehensive, well-rounded answers to your questions.
 
@@ -172,3 +172,4 @@ careful management of communication and culture challenges...
 **Reddit Data Retrieval Fails**
 - Some Reddit URLs may be inaccessible or deleted
 - The system gracefully handles missing data
+
