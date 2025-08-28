@@ -46,13 +46,13 @@ Final Synthesis → End
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
-   cd ai-agent-langgraph
+   git clone https://github.com/prakhar175/intelligent-research-aggregator.git
+   cd intelligent-research-aggregator
    ```
 
 2. **Install dependencies**
    ```bash
-   uv sync .
+   uv sync
    ```
 
 3. **Set up Ollama**
@@ -176,3 +176,4 @@ careful management of communication and culture challenges...
 ## 📄 License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 Project Link: [https://github.com/yourusername/ai-agent-langgraph](https://github.com/yourusername/ai-agent-langgraph)
+
